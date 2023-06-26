@@ -25,6 +25,8 @@ sequelize model:generate --name Citas --attributes 'id_pacientes:integer, id_doc
 # las tablas intermedias en una relacion N:N no llevan modelo, pero si llevan migracion
 doctores_especializacion
 #############################################################
+SELECT nombre, apellidos FROM usuarios a, doctores b where b.id_doctores = a.id
+
 
 # ejecutar migracion
 sequelize db:migrate

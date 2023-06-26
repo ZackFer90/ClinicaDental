@@ -1,5 +1,9 @@
 'use strict';
-
+const bcrypt = require("bcrypt");
+const contra = "12345";
+const contra1 = "67890";
+const encryptedContra = bcrypt.hashSync(contra, 10);
+const encryptedContra1 = bcrypt.hashSync(contra1, 10);
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up (queryInterface, Sequelize) {
@@ -11,7 +15,7 @@ module.exports = {
           apellidos: "Perez",
           fecha_nacimiento: "1973-03-15",
           email: "pablo@gmail.com",
-          contrasena: "12345",
+          contrasena: encryptedContra,
           telefono: "786543290",
           direccion: "C/Falsa 123",
           id_rol: "2",
@@ -23,7 +27,7 @@ module.exports = {
           apellidos: "Gonzalez",
           fecha_nacimiento: "1998-08-20",
           email: "Manuel@gmail.com",
-          contrasena: "67890",
+          contrasena: encryptedContra1,
           telefono: "981893191",
           direccion: "C/Diagonal 38",
           id_rol: "2",
