@@ -10,4 +10,6 @@ router.get("/", userController.getAll);
 
 router.get("/createAppointment", userController.createAppointment);
 
+router.get("/updateUser", userController.updateUser);
+
 module.exports = router;

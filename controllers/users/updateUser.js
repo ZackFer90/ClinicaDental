@@ -1,4 +1,4 @@
-const { Usuarios, Doctores, Citas } = require("../../models");
+const { Usuarios } = require("../../models");
 
 /**
  * Create new user
@@ -7,18 +7,25 @@ const { Usuarios, Doctores, Citas } = require("../../models");
  * @param {*} res Response object
  */
 module.exports = async (req, res) => {
-   const { nombrePaciente,  nombreDoctor} = req.body;
-
+   const { apellidos} = req.body;
+    const idPaciente = 1;
    try {
-    console.log(nombreDoctor);
-    const idPaciente = await Usuarios.findOne({
-      attributes: ["id"],
-      where: {
-         nombre: nombreDoctor, 
-      },
-    });
-
-    console.log(idPaciente.id);
+    console.log("Volaaaareeeeeee");
+    await Usuarios.Update(
+        {
+            // nombre: nombre,
+            apellidos: apellidos,
+            // email: email,
+            // contrasena: contrasena,
+            // fecha_nacimiento: fecha_nacimiento,
+        },
+        {
+            where: {
+              id: idPaciente,
+            },
+        },
+    );
+    console.log("ooooooooooooooooooooooh");
 
     //   const newAppointment = {
     //     nombrePaciente,
