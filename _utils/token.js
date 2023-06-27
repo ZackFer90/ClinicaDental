@@ -4,7 +4,7 @@ const jwt = require("jsonwebtoken");
 // Generar token, login
 const generateToken = (payload) => 
     jwt.sign(payload, process.env.JWT_SECRET, {
-    expiresIn: "1h",
+    expiresIn: "10h",
     });
 
  //Extrae el token del req, verifyToken

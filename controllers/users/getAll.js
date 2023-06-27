@@ -45,15 +45,15 @@ module.exports = async (req, res) => {
          //    results: users,
          // });
       }
-         res.status(404).json({
-            status: "error",
-            message: "Has superado el limite de datos",
-         });
 
    } catch (error) {
       res.status(500).json({
          status: "error",
          message: "Falla todo",
+      });
+      res.status(404).json({
+         status: "error",
+         message: "Has superado el limite de datos",
       });
    }
 };

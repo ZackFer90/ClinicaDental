@@ -29,7 +29,7 @@ module.exports = async (req, res) => {
       }
 
       const isMatch = bcrypt.compareSync(contrasena, user.contrasena);
-
+      
       if (!isMatch) {
          return res.status(400).json({
             status: "Error",
@@ -37,13 +37,15 @@ module.exports = async (req, res) => {
          });
       }
 
+      console.log("Antes token "+user.id+" "+user.nombre+" "+user.id_rol);
       const token = generateToken({
-         userId: Usuarios.id,
-         userNom: Usuarios.nombre,
-         userRole: Usuarios.roles.roles,
+         userId: user.id,
+         userNom: user.nombre,
+         userRole: user.roles,
       });
-
-
+      console.log("Holaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
+      console.log("tokenciiiiin "+token);
+      
       res.status(200).json({
          token,
       });
