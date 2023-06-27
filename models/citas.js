@@ -11,13 +11,13 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // Citas {1}--{1..n} Doctores
-      Citas.hasMany(models.Doctores, {
+      Citas.belongsTo(models.Doctores, {
         as: "doctores",
         foreignKey: "id_doctores", // foreingnKey
       });
 
       // Citas {1}--{1..n} Pacientes
-      Citas.hasMany(models.Pacientes, {
+      Citas.belongsTo(models.Pacientes, {
         as: "pacientes",
         foreignKey: "id_pacientes", // foreingnKey
       });

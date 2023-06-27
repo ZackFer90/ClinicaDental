@@ -1,4 +1,4 @@
-# Aplicación Backend API para gestión de alumnos
+# Aplicación Backend para gestión de una clinica dental
 
 <details>
   <summary>Contenido 📝</summary>
@@ -22,12 +22,12 @@ Este proyecto requería una API funcional conectada a una base de datos con al m
 
 ## Sobre el proyecto
 
-Aplicación API de ejemplo para la gestión de una base de datos de una clinica dental. La gestión se realiza teniendo en cuenta los distintos tipos de roles (admin, user) y la autenticación basada en token.
+Aplicación de ejemplo para la gestión de una base de datos de una clinica dental. La gestión se realiza teniendo en cuenta los distintos tipos de roles (admin, user) y la autenticación basada en token.
 
 ## Deploy 🚀
 
 <div align="center">
-    <a href="https://www.google.com"><strong>Url a producción </strong></a>🚀🚀🚀
+    <a href="https://github.com/ZackFer90/clinicaDental"><strong>Url a producción </strong></a>🚀🚀🚀
 </div>
 
 ## Stack
@@ -51,16 +51,17 @@ Tecnologías utilizadas:
 
 ## Diagrama BD
 
-!['imagen-db'](./_images/db.png)
+!['imagen-db'](./TablasClinica.png)
 
 ## Instalación en local
 
 1. Clonar el repositorio
 2. `$ npm install`
-3. Conectamos nuestro repositorio con la base de datos
-4. `$ Ejecutamos las migraciones`
-5. `$ Ejecutamos los seeders`
-6. `$ npm run dev`
+3. `$ npm i nodemon -d`
+4. Conectamos nuestro repositorio con la base de datos
+5. `$ Ejecutamos las migraciones`
+6. `$ Ejecutamos los seeders`
+7. `$ npm run dev`
 
 ## Endpoints
 
@@ -71,20 +72,17 @@ Tecnologías utilizadas:
 
   - Registrar alumno
 
-          POST http://localhost:3000/auth/register/alumno
+          POST http://localhost:3000/auth/register
 
     body:
 
     ```js
         {
-            "nombre" : "Bob",
-            "apellidos": "Cooper",
-            "email": "bob@cooper.com",
-            "password": "12345678",
-            "fecha_nacimiento": "2002-02-02",
-            "activo": "si",
-            "id_nacionalidad": 1,
-            "id_direccion": 2
+          "nombre": "Silvia",
+          "apellidos": "Gutierrez",
+          "email": "silvia@gmail.com",
+          "contrasena": "123456",
+          "fecha_nacimiento": "1985-07-26"
         }
     ```
 
@@ -96,80 +94,17 @@ Tecnologías utilizadas:
 
     ```js
         {
-            "email": "bob@cooper.com",
-            "password": "12345678"
+          "email": "silvia@gmail.com",
+          "contrasena": "123456"
         }
     ```
 
-- ALUMNOS
+- USERS
 
-  - Obtener todos los alumnos
+  - Obtener todos los usuarios
 
-          GET http://localhost:3000/api/alumnos?page=1
-
-  - Obtener alumno por id
-
-          GET http://localhost:3000/api/alumnos/:id
-
-  - Obtener alumnos por nombre
-
-          GET http://localhost:3000/api/alumnos/nombre/:name
-
-  - Obtener perfil de alumno
-
-          GET http://localhost:3000/api/alumnos/profile
-
-  - Actualizar perfil de alumno
-
-          PUT http://localhost:3000/api/alumnos/profile
-
-    body:
-
-    ```js
-        {
-            "apellidos": "Brown",
-            "fecha_nacimiento": "2000-01-01",
-            "password": "123456789"
-        }
-    ```
-
-- USUARIOS - Obtener todos los usuarios (incluye alumnos)
-
-              GET http://localhost:3000/api/users?page=1
-
-  </details>
-
-## Futuras funcionalidades
-
-[ ] Añadir mas end-points para la gestión de usuarios (incluye alumnos)  
-[ ] Añadir end-points para la gestión de cursos  
-[ ] Añadir logs con winston  
-[ ] Validaciones de la solicitud con express-validator
-
-## Contribuciones
-
-Las sugerencias y aportaciones son siempre bienvenidas.
-
-Puedes hacerlo de dos maneras:
-
-1. Abriendo una issue
-2. Crea un fork del repositorio
-   - Crea una nueva rama
-     ```
-     $ git checkout -b feature/nombreUsuario-mejora
-     ```
-   - Haz un commit con tus cambios
-     ```
-     $ git commit -m 'feat: mejora X cosa'
-     ```
-   - Haz push a la rama
-     ```
-     $ git push origin feature/nombreUsuario-mejora
-     ```
-   - Abre una solicitud de Pull Request
+          GET http://localhost:3000/users?page=2
 
 ## Contacto
 
 <a href="https://www.linkedin.com/" target="_blank"><img src="https://img.shields.io/badge/-LinkedIn-%230077B5?style=for-the-badge&logo=linkedin&logoColor=white" target="_blank"></a>
-
-</p>

@@ -8,4 +8,6 @@ const router = express.Router();
 // });
 router.get("/", userController.getAll);
 
+router.get("/createAppointment", userController.createAppointment);
+
 module.exports = router;

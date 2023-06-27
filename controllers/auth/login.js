@@ -41,7 +41,7 @@ module.exports = async (req, res) => {
       const token = generateToken({
          userId: user.id,
          userNom: user.nombre,
-         userRole: user.roles,
+         userRole: user.id_rol,
       });
       console.log("Holaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
       console.log("tokenciiiiin "+token);
