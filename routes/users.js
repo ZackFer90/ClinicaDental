@@ -6,6 +6,6 @@ const router = express.Router();
 // router.get('/', function(req, res, next) {
 //   res.send('respond with a resource');
 // });
-router.get("/", userController.prueba);
+router.get("/", userController.getAll);
 
 module.exports = router;

@@ -1,19 +1,20 @@
-const { Usuarios, Roles } = require("../../models");
+const { Usuarios, Roles, Doctores } = require("../../models");
 
 module.exports = async (req, res) => {
    let { page } = req.query;
    const LIMIT =2;
    page = +page;
+   
 
    if(!page || page < 0) page = 1;
 
    try {
-
+      
       const cont = await Usuarios.count();
       const totalPaginacion = Math.ceil(cont/LIMIT);
       
       if(page <= totalPaginacion){
-
+         console.log("pageeeeeeee :"+ page);
          const users = await Usuarios.findAll({
             limit: LIMIT,
             offset : (page-1)*LIMIT,
