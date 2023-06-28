@@ -16,6 +16,11 @@ module.exports = {
           createdAt: new Date(),
           updatedAt: new Date(),
         },
+        {
+          rol: "doctor",
+          createdAt: new Date(),
+          updatedAt: new Date(),
+        },
       ],
       {}
    );

@@ -30,7 +30,7 @@ module.exports = {
           contrasena: encryptedContra,
           telefono: "786543290",
           direccion: "C/Falsa 123",
-          id_rol: "2",
+          id_rol: "3",
           createdAt: new Date(),
           updatedAt: new Date(),
         },

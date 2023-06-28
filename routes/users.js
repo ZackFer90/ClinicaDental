@@ -9,10 +9,10 @@ const isAdmin = require("../middlewares/isAdmin");
 // router.get('/', function(req, res, next) {
 //   res.send('respond with a resource');
 // });
-router.get("/", userController.getAll);
+router.get("/", verifyToken, userController.getAll);
 
 router.post("/create-Appointment", verifyToken, userController.createAppointment);
 
-router.put("/update-user", userController.updateUser);
+router.put("/update-user",  userController.updateUser);
 
 module.exports = router;

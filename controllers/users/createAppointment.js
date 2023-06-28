@@ -1,8 +1,8 @@
 const { Usuarios, Doctores, Citas } = require("../../models");
 
 module.exports = async (req, res) => {
-   const { userId, patientId  } = req;
-   const { nombreDoctor, fecha} = req.body;
+   const { patientId } = req;
+   const { nombreDoctor, fecha } = req.body;
 
    try {
     console.log(nombreDoctor);
@@ -26,7 +26,7 @@ module.exports = async (req, res) => {
          fecha: fecha,
       };
 
-      console.log(newAppointment);
+
 
       await Citas.create(newAppointment);
 
@@ -34,7 +34,6 @@ module.exports = async (req, res) => {
          message: "Created succesfully",
       });
    } catch (error) {
-      console.log(error.name);
 
       const statusCode =
          error.name == "SequelizeUniqueConstraintError" ||

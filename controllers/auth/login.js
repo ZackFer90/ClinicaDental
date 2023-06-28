@@ -27,8 +27,6 @@ module.exports = async (req, res) => {
          },
       });
 
-      console.log(patient.id);
-
       if (!user) {
          return res.status(400).json({
             status: "Error",
