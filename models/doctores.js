@@ -20,7 +20,7 @@ module.exports = (sequelize, DataTypes) => {
       // Doctores {1}--{1} Usuarios
       Doctores.belongsTo(models.Usuarios, {
         as: "usuarios",
-        foreignKey: "id", // foreignKey
+        foreignKey: "id_doctores", // foreignKey
       });
 
       Doctores.hasMany(models.Citas, {

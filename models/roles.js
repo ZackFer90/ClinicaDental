@@ -13,7 +13,7 @@ module.exports = (sequelize, DataTypes) => {
       // Roles {1..n}--{1} Usuarios
       Roles.hasMany(models.Usuarios, {
         as: "usuarios",
-        foreignKey: "id_rol", // foreingnKey
+        foreignKey: "id", // foreingnKey
      });
     }
   }

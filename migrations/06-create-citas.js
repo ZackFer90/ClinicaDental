@@ -14,7 +14,7 @@ module.exports = {
         allowNull: false,
         references: {
           model: "pacientes",
-          key: "id_pacientes",
+          key: "id",
        },
       },
       id_doctores: {
@@ -22,7 +22,7 @@ module.exports = {
         allowNull: false,
         references: {
           model: "doctores",
-          key: "id_doctores",
+          key: "id",
         },
       },
       fecha: {

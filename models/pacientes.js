@@ -13,7 +13,7 @@ module.exports = (sequelize, DataTypes) => {
       // Pacientes {1}--{1} Usuarios
       Pacientes.belongsTo(models.Usuarios, {
         as: "usuarios",
-        foreignKey: "id", // foreignKey
+        foreignKey: "id_pacientes", // foreignKey
       });
 
       Pacientes.hasMany(models.Citas, {

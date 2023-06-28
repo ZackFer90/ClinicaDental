@@ -14,7 +14,7 @@ module.exports = async (req, res) => {
       const totalPaginacion = Math.ceil(cont/LIMIT);
       
       if(page <= totalPaginacion){
-         console.log("pageeeeeeee :"+ page);
+
          const users = await Usuarios.findAll({
             limit: LIMIT,
             offset : (page-1)*LIMIT,

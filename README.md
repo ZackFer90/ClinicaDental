@@ -10,8 +10,6 @@
     <li><a href="#diagrama-bd">Diagrama</a></li>
     <li><a href="#instalación-en-local">Instalación</a></li>
     <li><a href="#endpoints">Endpoints</a></li>
-    <li><a href="#futuras-funcionalidades">Futuras funcionalidades</a></li>
-    <li><a href="#contribuciones">Contribuciones</a></li>
     <li><a href="#contacto">Contacto</a></li>
   </ol>
 </details>
@@ -22,7 +20,7 @@ Este proyecto requería una API funcional conectada a una base de datos con al m
 
 ## Sobre el proyecto
 
-Aplicación de ejemplo para la gestión de una base de datos de una clinica dental. La gestión se realiza teniendo en cuenta los distintos tipos de roles (admin, user) y la autenticación basada en token.
+Aplicación de ejemplo para la gestión de una base de datos de una clínica dental. La gestión se realiza teniendo en cuenta los distintos tipos de roles (admin, user) y la autenticación basada en token.
 
 ## Deploy 🚀
 

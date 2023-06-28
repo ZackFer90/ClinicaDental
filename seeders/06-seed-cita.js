@@ -8,7 +8,7 @@ module.exports = {
       [
         {
           id_pacientes: 1,
-          id_doctores: 2,
+          id_doctores: 1,
           fecha: "2023-07-15",
           createdAt: new Date(),
           updatedAt: new Date(),

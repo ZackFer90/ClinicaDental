@@ -1,4 +1,3 @@
-const { errorMsg } = require("../_utils/messages");
 const { getTokenFromHeader, decodedToken } = require("../_utils/token");
 
 module.exports = (req, res, next) => {
@@ -8,7 +7,7 @@ module.exports = (req, res, next) => {
    if (!token) {
       return res.status(401).json({
          status: "Error",
-         message: errorMsg.token.NOTFOUND,
+         message: "Not found",
       });
    }
 
@@ -18,6 +17,7 @@ module.exports = (req, res, next) => {
 
       // modificar el objeto Request
       req.userId = decoded.userId;
+      req.patientId = decoded.patientId;
       req.userName = decoded.userName;
       req.userRole = decoded.userRole;
 

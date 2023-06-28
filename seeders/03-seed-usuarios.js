@@ -11,6 +11,18 @@ module.exports = {
       "usuarios",
       [
         {
+          nombre: "admin",
+          apellidos: "admin",
+          fecha_nacimiento: "1990-01-01",
+          email: "admin@gmail.com",
+          contrasena: encryptedContra,
+          telefono: "999999999",
+          direccion: "C/admin",
+          id_rol: "1",
+          createdAt: new Date(),
+          updatedAt: new Date(),
+        },
+        {
           nombre: "Pablo",
           apellidos: "Perez",
           fecha_nacimiento: "1973-03-15",

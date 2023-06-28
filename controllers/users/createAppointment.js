@@ -1,31 +1,34 @@
 const { Usuarios, Doctores, Citas } = require("../../models");
 
-/**
- * Create new user
- * Url example: [POST] http://localhost:3000/auth/register
- * @param {*} req Request object
- * @param {*} res Response object
- */
 module.exports = async (req, res) => {
-   const { nombrePaciente,  nombreDoctor} = req.body;
+   const { userId, patientId  } = req;
+   const { nombreDoctor, fecha} = req.body;
 
    try {
     console.log(nombreDoctor);
-    const idPaciente = await Usuarios.findOne({
+    const Usuario = await Usuarios.findOne({
       attributes: ["id"],
       where: {
          nombre: nombreDoctor, 
       },
     });
 
-    console.log(idPaciente.id);
+    const Doctor = await Doctores.findOne({
+      attributes: ["id"],
+      where: {
+         id_doctores: Usuario.id, 
+      },
+    });
+    
+      const newAppointment = {
+         id_pacientes: patientId,
+         id_doctores: Doctor.id,
+         fecha: fecha,
+      };
 
-    //   const newAppointment = {
-    //     nombrePaciente,
-    //     nombreDoctor,
-    //   };
+      console.log(newAppointment);
 
-    //    await Citas.create(newAppointment);
+      await Citas.create(newAppointment);
 
       res.status(201).json({
          message: "Created succesfully",

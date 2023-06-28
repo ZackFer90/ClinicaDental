@@ -13,19 +13,19 @@ module.exports = (sequelize, DataTypes) => {
       // Usuarios {1}--{1..n} Roles
       Usuarios.belongsTo(models.Roles, {
         as: "roles",
-        foreignKey: "id", // foreingnKey
+        foreignKey: "id_rol", // foreingnKey
       });
 
       // Usuarios {1}--{1} Doctores
       Usuarios.hasOne(models.Doctores, {
         as: "doctores",
-        foreignKey: "id_doctores", // foreingnKey
+        foreignKey: "id", // foreingnKey
       });
 
       // Usuarios {1}--{1} Pacientes
       Usuarios.hasOne(models.Pacientes, {
         as: "pacientes",
-        foreignKey: "id_paciente", // foreingnKey
+        foreignKey: "id", // foreingnKey
       });
 
     }

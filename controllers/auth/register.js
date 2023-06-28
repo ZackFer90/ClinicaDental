@@ -1,5 +1,5 @@
 const bcrypt = require("bcrypt");
-const { Usuarios } = require("../../models");
+const { Usuarios, Pacientes } = require("../../models");
 
 /**
  * Create new user
@@ -29,7 +29,22 @@ module.exports = async (req, res) => {
          id_rol: 2, // role = user
       };
 
-       await Usuarios.create(newUser);
+      await Usuarios.create(newUser);
+
+      const Usuario = await Usuarios.findOne({
+         attributes: ["id"],
+         where: {
+            email: email, 
+         },
+      });
+
+      const newPatient = {
+         id_pacientes: Usuario.id
+      }
+
+      console.log(Usuario.id);
+
+      await Pacientes.create(newPatient);
 
       res.status(201).json({
          message: "User created succesfully",

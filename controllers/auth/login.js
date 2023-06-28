@@ -1,7 +1,7 @@
 const bcrypt = require("bcrypt");
 // const jwt = require("jsonwebtoken");
 
-const { Roles, Usuarios } = require("../../models");
+const { Roles, Usuarios, Pacientes } = require("../../models");
 const { generateToken } = require("../../_utils/token");
 
 /**
@@ -18,8 +18,16 @@ module.exports = async (req, res) => {
          where: {
             email: email,
          },
-         include: [{ model: Roles, as: "roles" }],
+         include: [{ model: Roles, as: "roles", },],
       });
+
+      const patient = await Pacientes.findOne({
+         where: {
+            id_pacientes: user.id,
+         },
+      });
+
+      console.log(patient.id);
 
       if (!user) {
          return res.status(400).json({
@@ -37,14 +45,12 @@ module.exports = async (req, res) => {
          });
       }
 
-      console.log("Antes token "+user.id+" "+user.nombre+" "+user.id_rol);
       const token = generateToken({
          userId: user.id,
+         patientId: patient.id,
          userNom: user.nombre,
-         userRole: user.id_rol,
+         userRole: user.roles.rol,
       });
-      console.log("Holaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
-      console.log("tokenciiiiin "+token);
       
       res.status(200).json({
          token,

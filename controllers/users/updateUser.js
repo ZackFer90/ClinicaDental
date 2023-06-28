@@ -1,30 +1,10 @@
 const { Usuarios } = require("../../models");
 
-/**
- * Create new user
- * Url example: [POST] http://localhost:3000/auth/register
- * @param {*} req Request object
- * @param {*} res Response object
- */
 module.exports = async (req, res) => {
-   const { apellidos} = req.body;
-    const idPaciente = 1;
+   console.log("eentraaaaaaaaa");
    try {
-    console.log("Volaaaareeeeeee");
-    await Usuarios.Update(
-        {
-            // nombre: nombre,
-            apellidos: apellidos,
-            // email: email,
-            // contrasena: contrasena,
-            // fecha_nacimiento: fecha_nacimiento,
-        },
-        {
-            where: {
-              id: idPaciente,
-            },
-        },
-    );
+      const  apellidos = {...req.body};
+      await Usuarios.update(apellidos, {where: {id: 1}});
     console.log("ooooooooooooooooooooooh");
 
     //   const newAppointment = {
