@@ -15,4 +15,6 @@ router.post("/create-Appointment", verifyToken, userController.createAppointment
 
 router.put("/update-user",  userController.updateUser);
 
+router.get("/get-Appointment", verifyToken, userController.getAppointment);
+
 module.exports = router;

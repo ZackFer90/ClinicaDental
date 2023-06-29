@@ -47,7 +47,7 @@ module.exports = async (req, res) => {
          });
       }
 
-      console.log(user.roles.rol);
+      console.log(patient.id);
 
       const token = generateToken({
          userId: user.id,

@@ -7,4 +7,8 @@ const isDoctor = require("../middlewares/isDoctor");
 
 router.get("/", verifyToken, isDoctor, doctorController.getAll);
 
+router.post("/create-Appointment", verifyToken, isDoctor, doctorController.createAppointment);
+
+router.get("/get-Appointment", verifyToken, isDoctor, doctorController.getAppointment);
+
 module.exports = router;

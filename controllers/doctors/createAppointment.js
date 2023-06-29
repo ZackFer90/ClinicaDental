@@ -1,27 +1,27 @@
-const { Usuarios, Doctores, Citas } = require("../../models");
+const { Usuarios, Pacientes, Citas } = require("../../models");
 
 module.exports = async (req, res) => {
-   const { patientId } = req;
-   const { nombreDoctor, fecha } = req.body;
+   const { doctorId } = req;
+   const { nombrePatient, fecha } = req.body;
 
    try {
     const usuario = await Usuarios.findOne({
       attributes: ["id"],
       where: {
-         nombre: nombreDoctor, 
+         nombre: nombrePatient, 
       },
     });
 
-    const doctor = await Doctores.findOne({
+    const patient = await Pacientes.findOne({
       attributes: ["id"],
       where: {
-         id_doctores: usuario.id, 
+         id_pacientes: usuario.id, 
       },
     });
-    console.log(patientId);
+    
       const newAppointment = {
-         id_pacientes: patientId,
-         id_doctores: doctor.id,
+         id_pacientes: patient.id,
+         id_doctores: doctorId,
          fecha: fecha,
       };
 
