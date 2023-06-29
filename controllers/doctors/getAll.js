@@ -4,7 +4,6 @@ module.exports = async (req, res) => {
    let { page } = req.query;
    const LIMIT =2;
    page = +page;
-   
 
    if(!page || page < 0) page = 1;
 
@@ -13,37 +12,24 @@ module.exports = async (req, res) => {
       const cont = await Usuarios.count();
       const totalPaginacion = Math.ceil(cont/LIMIT);
 
-      console.log(patient);
-
       if(page <= totalPaginacion){
 
-         const users = await Usuarios.findAll({
+         const users = await Pacientes.findAll({
             limit: LIMIT,
             offset : (page-1)*LIMIT,
-            attributes: { exclude: ["createdAt", "updateAt"]},
+            attributes: { exclude: ["createdAt", "updatedAt", "id_pacientes"]},
          // attributes: ["id", ["user_name", "name"], ["user_last_name", "last_name"],],
             include: [
                {
-                  model: Roles,
-                  as: "roles",
+                  model: Usuarios,
+                  as: "usuarios",
                   attributes: {
-                     exclude: ["createdAt", "updatedAt"],
-                  }
-               },
-               {
-                  model: Pacientes,
-                  as: "pacientes",
-                  attributes: {
-                     exclude: ["createdAt", "updatedAt"],
+                     exclude: ["createdAt", "updatedAt", "contrasena", "id_rol"],
                   },
                },
-               {
-                  where: {
-                     id: Pacientes.id_pacientes, 
-                  },
-               }
             ],
          });
+
          res.status(200).json(users);
          // res.status(200).json({
          //    info: {

@@ -5,7 +5,6 @@ module.exports = async (req, res) => {
    const { nombreDoctor, fecha } = req.body;
 
    try {
-    console.log(nombreDoctor);
     const Usuario = await Usuarios.findOne({
       attributes: ["id"],
       where: {
