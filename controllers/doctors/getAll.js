@@ -1,4 +1,4 @@
-const { Usuarios, Roles, Doctores } = require("../../models");
+const { Usuarios, Roles, Doctores, Pacientes } = require("../../models");
 
 module.exports = async (req, res) => {
    let { page } = req.query;
@@ -12,7 +12,9 @@ module.exports = async (req, res) => {
       
       const cont = await Usuarios.count();
       const totalPaginacion = Math.ceil(cont/LIMIT);
-      
+
+      console.log(patient);
+
       if(page <= totalPaginacion){
 
          const users = await Usuarios.findAll({
@@ -29,12 +31,17 @@ module.exports = async (req, res) => {
                   }
                },
                {
-                  model: Doctores,
-                  as: "doctores",
+                  model: Pacientes,
+                  as: "pacientes",
                   attributes: {
                      exclude: ["createdAt", "updatedAt"],
                   },
                },
+               {
+                  where: {
+                     id: Pacientes.id_pacientes, 
+                  },
+               }
             ],
          });
          res.status(200).json(users);

@@ -18,6 +18,7 @@ module.exports = (req, res, next) => {
       // modificar el objeto Request
       req.userId = decoded.userId;
       req.patientId = decoded.patientId;
+      req.doctorId = decoded.doctorId;
       req.userName = decoded.userName;
       req.userRole = decoded.userRole;
 

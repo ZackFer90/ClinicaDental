@@ -1,7 +1,7 @@
 const bcrypt = require("bcrypt");
 // const jwt = require("jsonwebtoken");
 
-const { Roles, Usuarios, Pacientes } = require("../../models");
+const { Roles, Usuarios, Pacientes, Doctores } = require("../../models");
 const { generateToken } = require("../../_utils/token");
 
 /**
@@ -21,22 +21,26 @@ module.exports = async (req, res) => {
          include: [{ model: Roles, as: "roles", },],
       });
 
-      const patient = await Pacientes.findOne({
-         where: {
-            id_pacientes: user.id,
-         },
-      });
+      let patient = 0;
+      let doctor = 0;
 
-      if (!user) {
-         return res.status(400).json({
-            status: "Error",
-            message: "These credentials do not match our records",
+      if(user.roles.rol == "user"){
+         patient = await Pacientes.findOne({
+            where: {
+               id_pacientes: user.id,
+            },
          });
+
+      }else if(user.roles.rol == "doctor"){
+         doctor = await Doctores.findOne({
+            where: {
+               id_doctores: user.id,
+            },
+         });
+
       }
 
-      const isMatch = bcrypt.compareSync(contrasena, user.contrasena);
-      
-      if (!isMatch) {
+      if (!user) {
          return res.status(400).json({
             status: "Error",
             message: "These credentials do not match our records",
@@ -46,9 +50,19 @@ module.exports = async (req, res) => {
       const token = generateToken({
          userId: user.id,
          patientId: patient.id,
+         doctorId: doctor.id,
          userNom: user.nombre,
          userRole: user.roles.rol,
       });
+
+      const isMatch = bcrypt.compareSync(contrasena, user.contrasena);
+      
+      if (!isMatch) {
+         return res.status(400).json({
+            status: "Error",
+            message: "These credentials do not match our records",
+         });
+      }
       
       res.status(200).json({
          token,

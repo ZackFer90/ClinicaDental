@@ -7,7 +7,7 @@ const authRouter = require('./routes/auth');
 const doctorRouter = require('./routes/doctor');
 
 router.use('/', indexRouter);
-router.use('/users', usersRouter);
+router.use('/user', usersRouter);
 router.use('/auth', authRouter);
 router.use('/doctor', doctorRouter);
 
