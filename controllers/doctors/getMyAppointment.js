@@ -1,6 +1,7 @@
 const { Usuarios, Pacientes, Citas, Doctores } = require("../../models");
 
 module.exports = async (req, res) => {
+    const { doctorId } = req;
    let { page } = req.query;
    const LIMIT =3;
    page = +page;
@@ -52,6 +53,9 @@ module.exports = async (req, res) => {
                 ],
             },
         ],
+        where: {
+            id_doctores: doctorId,
+        },
     });
 
     res.status(200).json(citas);

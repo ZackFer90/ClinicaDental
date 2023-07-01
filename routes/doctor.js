@@ -11,4 +11,6 @@ router.post("/create-Appointment", verifyToken, isDoctor, doctorController.creat
 
 router.get("/get-Appointment", verifyToken, isDoctor, doctorController.getAppointment);
 
+router.get("/getMy-Appointment", verifyToken, isDoctor, doctorController.getMyAppointment);
+
 module.exports = router;
