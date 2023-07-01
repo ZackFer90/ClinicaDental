@@ -1,12 +1,11 @@
-const { Usuarios, Pacientes, Citas } = require("../../models");
+const { Usuarios, Pacientes, Citas, Doctores } = require("../../models");
 
 module.exports = async (req, res) => {
-    const { userId } = req;
+    const { patientId } = req;
    let { page } = req.query;
-   const LIMIT =2;
+   const LIMIT =3;
    page = +page;
 
-   console.log(userId);
    if(!page || page < 0) page = 1;
 
    try {
@@ -22,25 +21,25 @@ module.exports = async (req, res) => {
      // attributes: ["id", ["user_name", "name"], ["user_last_name", "last_name"],],
         include: [
            {
-                model: Pacientes,
-                as: "pacientes",
+                model: Doctores,
+                as: "doctores",
                 attributes: {
                     exclude: ["createdAt", "updatedAt", "contrasena", "id_rol", "id"],
-                },
-                where: {
-                    id_pacientes: userId,
                 },
                 include: [
                     {
                         model: Usuarios,
                         as: "usuarios",
                         attributes: {
-                            exclude: ["createdAt", "updatedAt", "contrasena", "id_rol", "id"],
+                            exclude: ["createdAt", "updatedAt", "contrasena", "id_rol", "id", "fecha_nacimiento", "email", "telefono", "direccion"],
                         },
                     },
                 ],
             },
         ],
+        where: {
+            id_pacientes: patientId,
+        },
     });
 
     res.status(200).json(citas);

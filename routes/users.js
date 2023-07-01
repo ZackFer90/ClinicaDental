@@ -12,11 +12,11 @@ router.get("/", verifyToken, userController.getAll);
 
 router.post("/create-Appointment", verifyToken, userController.createAppointment);
 
-router.put("/update-user",  userController.updateUser);
+router.put("/update-user", verifyToken, userController.updateUser);
 
-// router.put("/update-Appointment",  userController.updateAppointment);
+router.put("/update-Appointment", verifyToken, userController.updateAppointment);
 
-// router.put("/update-user",  userController.deleteAppointment);
+router.delete("/delete-user", verifyToken, userController.deleteAppointment);
 
 router.get("/get-Appointment", verifyToken, userController.getAppointment);
 
