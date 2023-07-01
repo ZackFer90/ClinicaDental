@@ -47,8 +47,6 @@ module.exports = async (req, res) => {
          });
       }
 
-      console.log(patient.id);
-
       const token = generateToken({
          userId: user.id,
          patientId: patient.id,
