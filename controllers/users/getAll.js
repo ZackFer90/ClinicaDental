@@ -1,4 +1,5 @@
 const { Usuarios, Roles } = require("../../models");
+const { errorMsg } = require("../../_util/messages");
 
 module.exports = async (req, res) => {
    const { userId } = req;
