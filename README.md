@@ -55,20 +55,41 @@ Tecnologías utilizadas:
 
 1. Clonar el repositorio
 2. `$ npm install`
-3. `$ npm i nodemon -d`
-4. Conectamos nuestro repositorio con la base de datos
-5. `$ Ejecutamos las migraciones`
-6. `$ Ejecutamos los seeders`
-7. `$ npm run dev`
+3. Conectamos nuestro repositorio con la base de datos
+4. `$ Ejecutamos las migraciones`
+5. `$ Ejecutamos los seeders`
+6. `$ npm run dev`
 
 ## Endpoints
 
 <details>
 <summary>Endpoints</summary>
 
+- Admin
+
+  - Ver los doctores
+
+          GET http://localhost:3000/admin/
+
+  - Registrar un doctor
+
+          http://localhost:3000/admin/register-doctor
+
+    body:
+
+    ```js
+        {
+          "nombre": "Montse",
+          "apellidos": "Lorenzo",
+          "email": "Montse@gmail.com",
+          "contrasena": "123456",
+          "fecha_nacimiento": "1985-07-26"
+        }
+    ```
+
 - AUTH
 
-  - Registrar alumno
+  - Registrar paciente
 
           POST http://localhost:3000/auth/register
 
@@ -97,11 +118,93 @@ Tecnologías utilizadas:
         }
     ```
 
+- DOCTORS
+
+  - Crear una cita
+
+          POST http://localhost:3000/doctor/create-Appointment
+
+    body:
+
+    ```js
+        {
+          "nombrePatient": "Silvia",
+          "fecha": "1990-06-16"
+        }
+    ```
+
+  - Ver los pacientes
+
+          GET http://localhost:3000/doctor?page=1
+
+  - Ver todas las citas de paciente con doctor
+
+          GET http://localhost:3000/doctor/get-Appointment?page=1
+
+  - Ver mis citas como doctor
+
+          GET http://localhost:3000/doctor/getMy-Appointment?page=1
+
 - USERS
 
-  - Obtener todos los usuarios
+  - Crear cita como usuario
 
-          GET http://localhost:3000/users?page=2
+          POST http://localhost:3000/user/create-Appointment
+
+    body:
+
+    ```js
+        {
+          "nombreDoctor": "Pablo",
+          "fecha": "1999-06-16"
+        }
+    ```
+
+  - Borrar cita
+
+        DELETE http://localhost:3000/user/delete-user
+
+    body:
+
+    ```js
+        {
+          "nombreDoctor": "Pablo",
+          "fecha": "1999-06-16"
+        }
+    ```
+
+  - Ver mis datos
+
+        GET http://localhost:3000/user
+
+  - Ver las citas
+
+        GET http://localhost:3000/user/get-Appointment?page=1
+
+  - Actualizar mi cita
+
+        PUT http://localhost:3000/user/update-Appointment
+
+    body:
+
+    ```js
+        {
+          "nombreDoctor": "Pablo",
+          "fecha": "1999-06-16"
+        }
+    ```
+
+  - Actualizar mis datos
+
+        PUT http://localhost:3000/user/update-user
+
+    body:
+
+    ```js
+        {
+          "apellidos": "Clupes"
+        }
+    ```
 
 ## Contacto
 
