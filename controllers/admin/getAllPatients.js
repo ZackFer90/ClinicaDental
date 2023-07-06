@@ -1,4 +1,4 @@
-const { Usuarios, Roles, Doctores } = require("../../models");
+const { Usuarios, Pacientes } = require("../../models");
 
 module.exports = async (req, res) => {
    let { page } = req.query;
@@ -9,16 +9,15 @@ module.exports = async (req, res) => {
 
    try {
       
-      const cont = await Doctores.count();
+      const cont = await Pacientes.count();
       const totalPaginacion = Math.ceil(cont/LIMIT);
 
       if(page <= totalPaginacion){
 
-         const users = await Doctores.findAll({
+         const users = await Pacientes.findAll({
             limit: LIMIT,
             offset : (page-1)*LIMIT,
-            attributes: { exclude: ["createdAt", "updatedAt", "id_doctores"]},
-         // attributes: ["id", ["user_name", "name"], ["user_last_name", "last_name"],],
+            attributes: { exclude: ["createdAt", "updatedAt", "id_pacientes"]},
             include: [
                {
                   model: Usuarios,
@@ -31,18 +30,12 @@ module.exports = async (req, res) => {
          });
 
          res.status(200).json(users);
-         // res.status(200).json({
-         //    info: {
-         //       page: page,
-         //    },
-         //    results: users,
-         // });
       }else{
-         res.status(200).json({
-            status: "error",
-            message: "Has superado el limite de datos",
-         });
-      }
+        res.status(200).json({
+           status: "error",
+           message: "Has superado el limite de datos",
+        });
+     }
 
    } catch (error) {
       res.status(500).json({

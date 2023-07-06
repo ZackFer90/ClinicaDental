@@ -1,4 +1,4 @@
-const { Usuarios, Roles, Doctores, Pacientes } = require("../../models");
+const { Usuarios, Pacientes } = require("../../models");
 
 module.exports = async (req, res) => {
    let { page } = req.query;
@@ -9,7 +9,7 @@ module.exports = async (req, res) => {
 
    try {
       
-      const cont = await Usuarios.count();
+      const cont = await Pacientes.count();
       const totalPaginacion = Math.ceil(cont/LIMIT);
 
       if(page <= totalPaginacion){
@@ -37,6 +37,11 @@ module.exports = async (req, res) => {
          //    },
          //    results: users,
          // });
+      }else{
+         res.status(200).json({
+            status: "error",
+            message: "Has superado el limite de datos",
+         });
       }
 
    } catch (error) {

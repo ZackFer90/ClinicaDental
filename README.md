@@ -69,7 +69,11 @@ Tecnologías utilizadas:
 
   - Ver los doctores
 
-          GET http://localhost:3000/admin/
+          GET http://localhost:3000/admin//getAll-doctor?page=1
+
+    - Ver los doctores
+
+          GET http://localhost:3000/admin//getAll-patient?page=1
 
   - Registrar un doctor
 
