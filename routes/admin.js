@@ -11,4 +11,8 @@ router.get("/getAll-patient", verifyToken, isAdmin, adminController.getAllPatien
 
 router.post("/register-doctor", verifyToken, isAdmin, adminController.registerDoctor);
 
+router.delete("/delete-patient", verifyToken, adminController.deletePatient);
+
+router.delete("/delete-doctor", verifyToken, adminController.deleteDoctor);
+
 module.exports = router;

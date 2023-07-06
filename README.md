@@ -77,7 +77,7 @@ Tecnologías utilizadas:
 
   - Registrar un doctor
 
-          http://localhost:3000/admin/register-doctor
+          POST http://localhost:3000/admin/register-doctor
 
     body:
 
@@ -88,6 +88,30 @@ Tecnologías utilizadas:
           "email": "Montse@gmail.com",
           "contrasena": "123456",
           "fecha_nacimiento": "1985-07-26"
+        }
+    ```
+
+  - Eliminar paciente
+
+            DELETE http://localhost:3000/admin/delete-patient
+
+    body:
+
+    ```js
+        {
+          "nombre": "Silvia"
+        }
+    ```
+
+    - Eliminar doctor
+
+            DELETE http://localhost:3000/admin/delete-doctor
+
+    body:
+
+    ```js
+        {
+          "nombre": "Montse"
         }
     ```
 

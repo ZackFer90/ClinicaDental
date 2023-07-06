@@ -26,7 +26,7 @@ const successMsg = {
       CREATE: "User created succsessfully",
       UPDATE: "User updated succesfully",
       DELETEALL: "All users deleted succesfully",
-      DELETE: "User deleted successfully",
+      DELETE: "Deleted successfully",
    },
 };
 
