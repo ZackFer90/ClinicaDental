@@ -50,7 +50,7 @@ module.exports = {
         {
           nombre: "Pedro",
           apellidos: "García",
-          fecha_nacimiento: "1998-08-20",
+          fecha_nacimiento: "1988-06-21",
           email: "Pedro@gmail.com",
           contrasena: encryptedContra1,
           telefono: "981893191",
@@ -62,7 +62,7 @@ module.exports = {
         {
           nombre: "Ana",
           apellidos: "Rodrígez",
-          fecha_nacimiento: "1998-08-20",
+          fecha_nacimiento: "1998-03-15",
           email: "Ana@gmail.com",
           contrasena: encryptedContra1,
           telefono: "981893191",
@@ -74,7 +74,7 @@ module.exports = {
         {
           nombre: "Manuel",
           apellidos: "López",
-          fecha_nacimiento: "1998-08-20",
+          fecha_nacimiento: "2003-04-20",
           email: "ManuelL@gmail.com",
           contrasena: encryptedContra1,
           telefono: "981893191",
@@ -86,7 +86,7 @@ module.exports = {
         {
           nombre: "María",
           apellidos: "González",
-          fecha_nacimiento: "1998-08-20",
+          fecha_nacimiento: "1973-11-11",
           email: "Maria@gmail.com",
           contrasena: encryptedContra1,
           telefono: "981893191",
@@ -98,7 +98,7 @@ module.exports = {
         {
           nombre: "Juan",
           apellidos: "Martínez",
-          fecha_nacimiento: "1998-08-20",
+          fecha_nacimiento: "1992-02-22",
           email: "Juan@gmail.com",
           contrasena: encryptedContra1,
           telefono: "981893191",
@@ -110,7 +110,7 @@ module.exports = {
         {
           nombre: "Laura",
           apellidos: "Fernández",
-          fecha_nacimiento: "1998-08-20",
+          fecha_nacimiento: "2002-12-23",
           email: "Laura@gmail.com",
           contrasena: encryptedContra1,
           telefono: "981893191",
@@ -122,7 +122,7 @@ module.exports = {
         {
           nombre: "Antonio",
           apellidos: "Torres",
-          fecha_nacimiento: "1998-08-20",
+          fecha_nacimiento: "1978-02-13",
           email: "Antonio@gmail.com",
           contrasena: encryptedContra1,
           telefono: "981893191",
@@ -134,7 +134,7 @@ module.exports = {
         {
           nombre: "Isabel",
           apellidos: "Ramos",
-          fecha_nacimiento: "1998-08-20",
+          fecha_nacimiento: "1963-08-16",
           email: "Isabel@gmail.com",
           contrasena: encryptedContra1,
           telefono: "981893191",
@@ -146,7 +146,7 @@ module.exports = {
         {
           nombre: "Jorge",
           apellidos: "Sánchez",
-          fecha_nacimiento: "1998-08-20",
+          fecha_nacimiento: "1996-06-20",
           email: "Jorge@gmail.com",
           contrasena: encryptedContra1,
           telefono: "981893191",
@@ -158,7 +158,7 @@ module.exports = {
         {
           nombre: "Carolina",
           apellidos: "Jiménez",
-          fecha_nacimiento: "1998-08-20",
+          fecha_nacimiento: "1999-05-29",
           email: "Carolina@gmail.com",
           contrasena: encryptedContra1,
           telefono: "981893191",
@@ -170,7 +170,7 @@ module.exports = {
         {
           nombre: "Eduardo",
           apellidos: "Vargas",
-          fecha_nacimiento: "1998-08-20",
+          fecha_nacimiento: "1982-11-11",
           email: "Eduardo@gmail.com",
           contrasena: encryptedContra1,
           telefono: "981893191",
@@ -182,7 +182,7 @@ module.exports = {
         {
           nombre: "Gabriela",
           apellidos: "Castillo",
-          fecha_nacimiento: "1998-08-20",
+          fecha_nacimiento: "1983-03-09",
           email: "Gabriela@gmail.com",
           contrasena: encryptedContra1,
           telefono: "981893191",
@@ -194,7 +194,7 @@ module.exports = {
         {
           nombre: "Luis",
           apellidos: "Medina",
-          fecha_nacimiento: "1998-08-20",
+          fecha_nacimiento: "1975-05-05",
           email: "Luis@gmail.com",
           contrasena: encryptedContra1,
           telefono: "981893191",
@@ -206,7 +206,7 @@ module.exports = {
         {
           nombre: "Carmen",
           apellidos: "Paredes",
-          fecha_nacimiento: "1998-08-20",
+          fecha_nacimiento: "1991-10-06",
           email: "Carmen@gmail.com",
           contrasena: encryptedContra1,
           telefono: "981893191",
@@ -218,7 +218,7 @@ module.exports = {
         {
           nombre: "Raúl",
           apellidos: "Franco",
-          fecha_nacimiento: "1998-08-20",
+          fecha_nacimiento: "1997-03-30",
           email: "Raul@gmail.com",
           contrasena: encryptedContra1,
           telefono: "981893191",
@@ -230,7 +230,7 @@ module.exports = {
         {
           nombre: "Verónica",
           apellidos: "Navarro",
-          fecha_nacimiento: "1998-08-20",
+          fecha_nacimiento: "1978-08-20",
           email: "Veronica@gmail.com",
           contrasena: encryptedContra1,
           telefono: "981893191",
@@ -254,7 +254,7 @@ module.exports = {
         {
           nombre: "Adriana",
           apellidos: "Mendoza",
-          fecha_nacimiento: "1998-08-20",
+          fecha_nacimiento: "1984-03-11",
           email: "Adriana@gmail.com",
           contrasena: encryptedContra1,
           telefono: "981893191",
@@ -266,7 +266,7 @@ module.exports = {
         {
           nombre: "Óscar",
           apellidos: "Ortega",
-          fecha_nacimiento: "1998-08-20",
+          fecha_nacimiento: "1990-08-13",
           email: "Oscar@gmail.com",
           contrasena: encryptedContra1,
           telefono: "981893191",
@@ -278,7 +278,7 @@ module.exports = {
         {
           nombre: "Natalia",
           apellidos: "Hernández",
-          fecha_nacimiento: "1998-08-20",
+          fecha_nacimiento: "1981-09-08",
           email: "Natalia@gmail.com",
           contrasena: encryptedContra1,
           telefono: "981893191",
@@ -290,7 +290,7 @@ module.exports = {
         {
           nombre: "Andrés",
           apellidos: "Valencia",
-          fecha_nacimiento: "1998-08-20",
+          fecha_nacimiento: "1986-01-06",
           email: "Andres@gmail.com",
           contrasena: encryptedContra1,
           telefono: "981893191",
@@ -302,7 +302,7 @@ module.exports = {
         {
           nombre: "Alejandra",
           apellidos: "Salazar",
-          fecha_nacimiento: "1998-08-20",
+          fecha_nacimiento: "1989-10-21",
           email: "Alejandra@gmail.com",
           contrasena: encryptedContra1,
           telefono: "981893191",
@@ -314,7 +314,7 @@ module.exports = {
         {
           nombre: "Guillermo",
           apellidos: "Silva",
-          fecha_nacimiento: "1998-08-20",
+          fecha_nacimiento: "1974-11-12",
           email: "Guillermo@gmail.com",
           contrasena: encryptedContra1,
           telefono: "981893191",
@@ -326,7 +326,7 @@ module.exports = {
         {
           nombre: "Lucía",
           apellidos: "Tapia",
-          fecha_nacimiento: "1998-08-20",
+          fecha_nacimiento: "1983-12-13",
           email: "Lucia@gmail.com",
           contrasena: encryptedContra1,
           telefono: "981893191",
@@ -338,7 +338,7 @@ module.exports = {
         {
           nombre: "Ricardo",
           apellidos: "Ríos",
-          fecha_nacimiento: "1998-08-20",
+          fecha_nacimiento: "1970-01-24",
           email: "Ricardo@gmail.com",
           contrasena: encryptedContra1,
           telefono: "981893191",
@@ -350,7 +350,7 @@ module.exports = {
         {
           nombre: "Daniela",
           apellidos: "Flores",
-          fecha_nacimiento: "1998-08-20",
+          fecha_nacimiento: "1998-04-14",
           email: "Daniela@gmail.com",
           contrasena: encryptedContra1,
           telefono: "981893191",
@@ -362,7 +362,7 @@ module.exports = {
         {
           nombre: "Mauricio",
           apellidos: "Castro",
-          fecha_nacimiento: "1998-08-20",
+          fecha_nacimiento: "1990-08-01",
           email: "Mauricio@gmail.com",
           contrasena: encryptedContra1,
           telefono: "981893191",
@@ -374,7 +374,7 @@ module.exports = {
         {
           nombre: "Martín",
           apellidos: "Guzmán",
-          fecha_nacimiento: "1998-08-20",
+          fecha_nacimiento: "1963-04-26",
           email: "Martin@gmail.com",
           contrasena: encryptedContra1,
           telefono: "981893191",
@@ -386,7 +386,7 @@ module.exports = {
         {
           nombre: "Valentina",
           apellidos: "Camacho",
-          fecha_nacimiento: "1998-08-20",
+          fecha_nacimiento: "1979-05-01",
           email: "Valentina@gmail.com",
           contrasena: encryptedContra1,
           telefono: "981893191",
@@ -398,7 +398,7 @@ module.exports = {
         {
           nombre: "Camila",
           apellidos: "Vargas",
-          fecha_nacimiento: "1998-08-20",
+          fecha_nacimiento: "1990-04-16",
           email: "Camila@gmail.com",
           contrasena: encryptedContra1,
           telefono: "981893191",
@@ -407,7 +407,6 @@ module.exports = {
           createdAt: new Date(),
           updatedAt: new Date(),
         },
-
       ],
       {}
     );
