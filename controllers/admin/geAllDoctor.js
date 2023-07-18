@@ -2,7 +2,7 @@ const { Usuarios, Roles, Doctores } = require("../../models");
 
 module.exports = async (req, res) => {
    let { page } = req.query;
-   const LIMIT =2;
+   const LIMIT =7;
    page = +page;
 
    if(!page || page < 0) page = 1;
@@ -30,13 +30,13 @@ module.exports = async (req, res) => {
             ],
          });
 
-         res.status(200).json(users);
-         // res.status(200).json({
-         //    info: {
-         //       page: page,
-         //    },
-         //    results: users,
-         // });
+         // res.status(200).json(users);
+         res.status(200).json({
+            info: {
+               totalPage: totalPaginacion,
+            },
+            results: users,
+         });
       }else{
          res.status(200).json({
             status: "error",

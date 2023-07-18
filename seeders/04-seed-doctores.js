@@ -11,6 +11,31 @@ module.exports = {
           createdAt: new Date(),
           updatedAt: new Date(),
         },
+        {
+          id_doctores: 6,
+          createdAt: new Date(),
+          updatedAt: new Date(),
+        },
+        {
+          id_doctores: 11,
+          createdAt: new Date(),
+          updatedAt: new Date(),
+        },
+        {
+          id_doctores: 19,
+          createdAt: new Date(),
+          updatedAt: new Date(),
+        },
+        {
+          id_doctores: 24,
+          createdAt: new Date(),
+          updatedAt: new Date(),
+        },
+        {
+          id_doctores: 27,
+          createdAt: new Date(),
+          updatedAt: new Date(),
+        },
       ],
       {}
     );
