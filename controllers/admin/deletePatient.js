@@ -2,19 +2,19 @@ const { successMsg } = require("../../_utils/messages");
 const { Usuarios, Citas, Pacientes } = require("../../models");
 
 module.exports = async (req, res) => {
-    const { nombrePaciente} = req.body;
+    const { id } = req.body;
 
 
    try {
 
-    const user = await Usuarios.findOne({
-        attributes: ["id"],
-        where: {
-           nombre: nombrePaciente, 
-        },
-      });
+    // const user = await Usuarios.findOne({
+    //     attributes: ["id"],
+    //     where: {
+    //        nombre: nombrePaciente, 
+    //     },
+    //   });
 
-      const idUser =user.id;
+      const idUser = id;
 
       const paciente = await Pacientes.findOne({
         attributes: ["id"],
