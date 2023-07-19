@@ -15,4 +15,6 @@ router.delete("/delete-patient", verifyToken, adminController.deletePatient);
 
 router.delete("/delete-doctor", verifyToken, adminController.deleteDoctor);
 
+router.put("/modify-user", verifyToken, adminController.modifyUser);
+
 module.exports = router;

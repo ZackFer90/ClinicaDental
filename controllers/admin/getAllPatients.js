@@ -18,7 +18,7 @@ module.exports = async (req, res) => {
             limit: LIMIT,
             offset : (page-1)*LIMIT,
             attributes: { exclude: ["createdAt", "updatedAt", "id_pacientes"]},
-            include: [
+            include: [ 
                {
                   model: Usuarios,
                   as: "usuarios",
