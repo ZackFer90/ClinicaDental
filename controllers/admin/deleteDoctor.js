@@ -1,5 +1,5 @@
 const { successMsg } = require("../../_utils/messages");
-const { Usuarios, Citas, Doctores } = require("../../models");
+const { Usuarios, Citas, Doctores} = require("../../models");
 
 module.exports = async (req, res) => {
     const { id } = req.body;
@@ -32,12 +32,21 @@ module.exports = async (req, res) => {
         },
       });
 
+      console.log(idUser);
+
       if(cita != null){
+
         await Citas.destroy(
             {where: {
                 id_doctores: idDoctor,
             },
         });
+
+        // await Doctor_especializacion.destroy(
+        //     {where: {
+        //         id_doctores: idUser,
+        //     },
+        // });
 
         await Doctores.destroy(
             {where: {
@@ -51,10 +60,16 @@ module.exports = async (req, res) => {
             },
         });
         
-        res.status(200).json({
-            message: successMsg.DELETE,
-         });
+        // res.status(200).json({
+        //     message: successMsg.DELETE,
+        //  });
       }else{
+
+        // await Doctor_especializacion.destroy(
+        //     {where: {
+        //         id_doctores: idUser,
+        //     },
+        // });
 
         await Doctores.destroy(
             {where: {

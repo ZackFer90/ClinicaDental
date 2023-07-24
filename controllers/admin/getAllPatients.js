@@ -21,9 +21,9 @@ module.exports = async (req, res) => {
             include: [ 
                {
                   model: Usuarios,
-                  as: "usuarios",
+                  as: "usuario",
                   attributes: {
-                     exclude: ["createdAt", "updatedAt", "contrasena", "id_rol"],
+                     exclude: ["createdAt", "updatedAt", "contrasena"],
                   },
                },
             ],
@@ -33,6 +33,7 @@ module.exports = async (req, res) => {
          res.status(200).json({
             info: {
                totalPage: totalPaginacion,
+               rol: "patient",
             },
             results: users,
          });
@@ -46,11 +47,7 @@ module.exports = async (req, res) => {
    } catch (error) {
       res.status(500).json({
          status: "error",
-         message: "Falla todo",
-      });
-      res.status(404).json({
-         status: "error",
-         message: "Has superado el limite de datos",
+         message: error.message,
       });
    }
 };

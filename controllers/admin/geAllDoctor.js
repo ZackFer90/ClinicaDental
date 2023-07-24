@@ -14,6 +14,8 @@ module.exports = async (req, res) => {
 
       if(page <= totalPaginacion){
 
+         const doctors = await Doctores.findAll();
+
          const users = await Doctores.findAll({
             limit: LIMIT,
             offset : (page-1)*LIMIT,
@@ -22,18 +24,34 @@ module.exports = async (req, res) => {
             include: [
                {
                   model: Usuarios,
-                  as: "usuarios",
+                  as: "usuario",
                   attributes: {
-                     exclude: ["createdAt", "updatedAt", "contrasena", "id_rol"],
+                     exclude: ["createdAt", "updatedAt", "contrasena"],
                   },
                },
             ],
          });
 
+         const doctorEspecializacion = [];
+         for (const doctor of doctors) {
+            const especializacion = await doctor.getEspecializacion;
+            // console.log(doctor);
+            // doctorEspecializacion.push({
+            //    id: doctor.id,
+            //    especializacion: especializacion.especialidad,
+            // });
+            console.log(especializacion);
+         }
+
+         // const prueba = Doctores.getdoctores_especializacion();
+         // console.log(doctorEspecializacion);
+
          // res.status(200).json(users);
          res.status(200).json({
             info: {
                totalPage: totalPaginacion,
+               rol: "doctor",
+               especializacion: doctorEspecializacion.length > 0 ? doctorEspecializacion : undefined,
             },
             results: users,
          });
@@ -47,11 +65,7 @@ module.exports = async (req, res) => {
    } catch (error) {
       res.status(500).json({
          status: "error",
-         message: "Falla todo",
-      });
-      res.status(404).json({
-         status: "error",
-         message: "Has superado el limite de datos",
+         message: error.message,
       });
    }
 };

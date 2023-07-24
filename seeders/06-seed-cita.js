@@ -13,6 +13,20 @@ module.exports = {
           createdAt: new Date(),
           updatedAt: new Date(),
         },
+        {
+          id_pacientes: 2,
+          id_doctores: 3,
+          fecha: "2023-07-15",
+          createdAt: new Date(),
+          updatedAt: new Date(),
+        },
+        {
+          id_pacientes: 4,
+          id_doctores: 5,
+          fecha: "2023-07-15",
+          createdAt: new Date(),
+          updatedAt: new Date(),
+        },
       ],
       {}
     );

@@ -12,7 +12,7 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // Pacientes {1}--{1} Usuarios
       Pacientes.belongsTo(models.Usuarios, {
-        as: "usuarios",
+        as: "usuario",
         foreignKey: "id_pacientes", // foreignKey
       });
 

@@ -10,6 +10,8 @@ const verifyToken = require("../middlewares/verifyToken");
 // });
 router.get("/", verifyToken, userController.getAll);
 
+router.get("/getDoctor", userController.getDoctor);
+
 router.post("/create-Appointment", verifyToken, userController.createAppointment);
 
 router.put("/update-user", verifyToken, userController.updateUser);

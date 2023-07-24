@@ -28,7 +28,7 @@ module.exports = async (req, res) => {
                     include: [
                         {
                             model: Usuarios,
-                            as: "usuarios",
+                            as: "usuario",
                             attributes: {
                                 exclude: ["createdAt", "updatedAt", "contrasena", "id_rol", "id"],
                             },
@@ -44,7 +44,7 @@ module.exports = async (req, res) => {
                     include: [
                         {
                             model: Usuarios,
-                            as: "usuarios",
+                            as: "usuario",
                             attributes: {
                                 exclude: ["createdAt", "updatedAt", "contrasena", "id_rol", "id", "fecha_nacimiento", "email", "telefono", "direccion"],
                             },

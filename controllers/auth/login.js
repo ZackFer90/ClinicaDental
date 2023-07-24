@@ -1,5 +1,6 @@
 const bcrypt = require("bcrypt");
 // const jwt = require("jsonwebtoken");
+const { errorMsg } = require("../../_utils/messages");
 
 const { Roles, Usuarios, Pacientes, Doctores } = require("../../models");
 const { generateToken } = require("../../_utils/token");
@@ -60,7 +61,7 @@ module.exports = async (req, res) => {
       if (!isMatch) {
          return res.status(400).json({
             status: "Error",
-            message: "These credentials do not match our records",
+            message: errorMsg.authorization.LOGINFAILED,
          });
       }
       
@@ -70,7 +71,7 @@ module.exports = async (req, res) => {
    } catch (error) {
       res.status(500).json({
          status: "Error",
-         message: error.message,
+         message: errorMsg.authorization.LOGINFAILED,
       });
    }
 };

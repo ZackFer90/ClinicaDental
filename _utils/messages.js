@@ -17,7 +17,7 @@ const errorMsg = {
       NOAUTH: "Dont have permission",
       BADCREDENTIALS: "Bad credentials",
       REQUIERED: "Email and Password are required",
-      LOGINFAILED: "User login failed",
+      LOGINFAILED: "Usuario/Contraseña incorrectos",
    },
 };
 

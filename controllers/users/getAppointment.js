@@ -24,18 +24,34 @@ module.exports = async (req, res) => {
                     model: Doctores,
                     as: "doctores",
                     attributes: {
-                        exclude: ["createdAt", "updatedAt", "contrasena", "id_rol", "id"],
+                        exclude: ["createdAt", "updatedAt", "contrasena", "id_rol"],
                     },
                     include: [
                         {
                             model: Usuarios,
-                            as: "usuarios",
+                            as: "usuario",
                             attributes: {
                                 exclude: ["createdAt", "updatedAt", "contrasena", "id_rol", "id", "fecha_nacimiento", "email", "telefono", "direccion"],
                             },
                         },
                     ],
-                },
+            },
+            {
+                    model: Pacientes,
+                    as: "pacientes",
+                    attributes: {
+                        exclude: ["createdAt", "updatedAt", "contrasena", "id_rol"],
+                    },
+                    include: [
+                        {
+                            model: Usuarios,
+                            as: "usuario",
+                            attributes: {
+                                exclude: ["createdAt", "updatedAt", "contrasena", "id_rol", "id", "fecha_nacimiento", "email", "telefono", "direccion"],
+                            },
+                        },
+                    ],
+            },
             ],
             where: {
                 id_pacientes: patientId,
