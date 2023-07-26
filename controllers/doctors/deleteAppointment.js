@@ -1,8 +1,8 @@
-const { Usuarios, Citas, Doctores } = require("../../models");
+const { Usuarios, Citas, Pacientes } = require("../../models");
 
 module.exports = async (req, res) => {
-    const { patientId } = req;
-    const { nombreDoctor, fecha } = req.body;
+    const { doctorId } = req;
+    const { nombrePaciente, fecha } = req.body;
 
 
    try {
@@ -10,25 +10,25 @@ module.exports = async (req, res) => {
     const user = await Usuarios.findOne({
         attributes: ["id"],
         where: {
-           nombre: nombreDoctor, 
+           nombre: nombrePaciente, 
         },
       });
 
       const idUser =user.id;
 
-      const doctor = await Doctores.findOne({
+      const patient = await Pacientes.findOne({
         attributes: ["id"],
         where: {
            id_doctores: idUser, 
         },
       });
 
-      const idDoctor =doctor.id;
+      const idPatient =patient.id;
 
       const cita = await Citas.findOne({
         attributes: ["id"],
         where: {
-           id_doctores: idDoctor, 
+           id_doctores: idPatient, 
         },
       });
 
@@ -41,8 +41,8 @@ module.exports = async (req, res) => {
       }else{
         await Citas.destroy(
             {where: {
-               id_pacientes: patientId,
-               id_doctores: idDoctor,
+               id_pacientes: idPatient,
+               id_doctores: doctorId,
                fecha: fechaHora,
             },
         });

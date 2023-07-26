@@ -17,7 +17,7 @@ module.exports = async (req, res) => {
         const citas = await Citas.findAll({
             limit: LIMIT,
             offset : (page-1)*LIMIT,
-            attributes: ["fecha"],
+            attributes: ["id", "fecha"],
         // attributes: ["id", ["user_name", "name"], ["user_last_name", "last_name"],],
             include: [
             {

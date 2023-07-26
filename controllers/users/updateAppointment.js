@@ -1,52 +1,77 @@
-const { Usuarios, Citas, Doctores } = require("../../models");
+const { Usuarios, Citas, Pacientes, Doctores } = require("../../models");
 
 module.exports = async (req, res) => {
-    const { patientId } = req;
-    const { nombreDoctor, fecha } = req.body;
-
+    const  modifyAppoint = {...req.body};
 
    try {
 
-    const user = await Usuarios.findOne({
-        attributes: ["id"],
-        where: {
-           nombre: nombreDoctor, 
-        },
-      });
-
-      const idUser =user.id;
-
-      const doctor = await Doctores.findOne({
-        attributes: ["id"],
-        where: {
-           id_doctores: idUser, 
-        },
-      });
-
-      const idDoctor =doctor.id;
-
       const cita = await Citas.findOne({
-        attributes: ["id"],
-        where: {
-           id_doctores: idDoctor, 
-        },
-      });
+         where: {
+            id: modifyAppoint.idCita, 
+         },
+       });
 
-      if(cita == null){
-        res.status(201).json({
-            message: "Doctor doesn't exist in Citas",
+       if(cita != null){
+
+         //Sacar la id de doctor
+
+         const user = await Usuarios.findOne({
+         attributes: ["id"],
+            where: {
+               nombre: modifyAppoint.nombreDoctor, 
+            },
          });
-      }else{
-        await Citas.update({
-            fecha: fecha}, 
+
+         const idUserDoc =user.id;
+
+         const doctor = await Doctores.findOne({
+         attributes: ["id"],
+         where: {
+            id_doctores: idUserDoc, 
+         },
+         });
+
+         const idDoctor =doctor.id;
+
+         //Sacar la id de paciente
+
+         const user1 = await Usuarios.findOne({
+            attributes: ["id"],
+               where: {
+                  nombre: modifyAppoint.nombrePatient, 
+               },
+            });
+   
+            const idUserPat =user1.id;
+   
+            const patient = await Pacientes.findOne({
+            attributes: ["id"],
+               where: {
+                  id_pacientes: idUserPat, 
+               },
+            });
+
+            const idPatient =patient.id;
+
+            //Modificar cita
+
+         await Citas.update({
+            id_doctores: idDoctor,
+            id_pacientes: idPatient,
+            fecha: modifyAppoint.fecha}, 
             {where: {
-                id_pacientes: patientId,
-                 id_doctores: idDoctor
+                  id: modifyAppoint.idCita
                 },
         });
 
-        res.status(201).json({
+      
+         res.status(201).json({
             message: "Created succesfully",
+         });
+      }else{ 
+
+         res.status(201).json({
+            message: "Doctor doesn't exist in Citas",
          });
       }
 
