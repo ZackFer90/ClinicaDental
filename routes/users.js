@@ -22,4 +22,6 @@ router.delete("/delete-appoint", verifyToken, userController.deleteAppointment);
 
 router.get("/get-Appointment", verifyToken, userController.getAppointment);
 
+router.put("/searchAppointment", userController.searchAppointment);
+
 module.exports = router;

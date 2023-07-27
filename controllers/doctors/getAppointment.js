@@ -2,7 +2,7 @@ const { Usuarios, Pacientes, Citas, Doctores } = require("../../models");
 
 module.exports = async (req, res) => {
    let { page } = req.query;
-   const LIMIT =3;
+   const LIMIT =7;
    page = +page;
 
    if(!page || page < 0) page = 1;
@@ -16,7 +16,7 @@ module.exports = async (req, res) => {
         const citas = await Citas.findAll({
             limit: LIMIT,
             offset : (page-1)*LIMIT,
-            attributes: ["fecha"],
+            attributes: ["fecha","id"],
         // attributes: ["id", ["user_name", "name"], ["user_last_name", "last_name"],],
             include: [
             {
@@ -54,7 +54,12 @@ module.exports = async (req, res) => {
             ],
         });
 
-        res.status(200).json(citas);
+        res.status(200).json({
+            info: {
+               totalPage: totalPaginacion,
+            },
+            results: citas,
+         });
     }else{
         res.status(200).json({
            status: "error",

@@ -3,7 +3,7 @@ const { Usuarios, Pacientes, Citas, Doctores } = require("../../models");
 module.exports = async (req, res) => {
     const { patientId } = req;
    let { page } = req.query;
-   const LIMIT =3;
+   const LIMIT =20;
    page = +page;
 
    if(!page || page < 0) page = 1;
@@ -17,7 +17,7 @@ module.exports = async (req, res) => {
         const citas = await Citas.findAll({
             limit: LIMIT,
             offset : (page-1)*LIMIT,
-            attributes: ["fecha"],
+            attributes: ["fecha","id"],
         // attributes: ["id", ["user_name", "name"], ["user_last_name", "last_name"],],
             include: [
             {

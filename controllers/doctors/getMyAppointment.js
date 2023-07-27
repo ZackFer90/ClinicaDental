@@ -3,14 +3,20 @@ const { Usuarios, Pacientes, Citas, Doctores } = require("../../models");
 module.exports = async (req, res) => {
     const { doctorId } = req;
    let { page } = req.query;
-   const LIMIT =3;
+   const LIMIT =7;
    page = +page;
 
    if(!page || page < 0) page = 1;
 
    try {
 
-    const cont = await Citas.count();
+    const totalAppoint = await Citas.findAll({where: {id_doctores: doctorId},});
+    // console.log(totalAppoint);
+    const cont = totalAppoint.length;
+    // const cont = await Citas.count();
+
+
+
     const totalPaginacion = Math.ceil(cont/LIMIT);
 
     if(page <= totalPaginacion){
@@ -58,7 +64,12 @@ module.exports = async (req, res) => {
             },
         });
 
-        res.status(200).json(citas);
+        res.status(200).json({
+            info: {
+               totalPage: totalPaginacion,
+            },
+            results: citas,
+         });
     }else{
         res.status(200).json({
            status: "error",

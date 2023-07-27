@@ -25,8 +25,6 @@ module.exports = async (req, res) => {
          fecha: fecha,
       };
 
-
-
       await Citas.create(newAppointment);
 
       res.status(201).json({
